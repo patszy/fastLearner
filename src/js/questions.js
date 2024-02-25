@@ -1,5 +1,5 @@
 const questions = {
-  c1: [
+  c1s1: [
     { pl: "dane osobowe", en: "personal data" },
     { pl: "adres", en: "address" },
     { pl: "wiek", en: "age" },
@@ -19,7 +19,9 @@ const questions = {
     { pl: "kraj zamieszkania", en: "country of residence" },
     { pl: "znaki szczególne", en: "distinguishing features" },
     { pl: "pochodzenie etniczne", en: "ethnic origin" },
-    { pl: "najbliższy krewny", en: "next of kin" },
+    { pl: "najbliższy krewny", en: "next of kin" }
+  ],
+  c1s2: [
     { pl: "wygląd zewętrzny", en: "appearance" },
     { pl: "atrakcyjny/nieatrakcyjny", en: "attractive/unattractive" },
     { pl: "piękny", en: "beautiful" },
@@ -76,7 +78,9 @@ const questions = {
     { pl: "podwójny podbródek", en: "double chin" },
     { pl: "wystające kości policzkowe", en: "high cheekbones" },
     { pl: "wysokie czoło", en: "high forehead" },
-    { pl: "przenikliwe niebieskie oczy", en: "piercing blue eyes" },
+    { pl: "przenikliwe niebieskie oczy", en: "piercing blue eyes" }
+  ],
+  c1s3: [
     { pl: "bluzka", en: "blouse" },
     { pl: "wysokie buty, kozaki", en: "boots" },
     { pl: "biustonosz", en: "bra" },
@@ -136,6 +140,23 @@ const questions = {
     { pl: "sznurówki", en: "shoe laces" },
     { pl: "kapcie", en: "slippers" },
     { pl: "na zamek", en: "zip-up" },
+    { pl: "w kratę", en: "checked" },
+    { pl: "bawełna", en: "cotton" },
+    { pl: "złoto", en: "gold" },
+    { pl: "skóra, skórzany", en: "leather" },
+    { pl: "gładki", en: "plain" },
+    { pl: "jedwab", en: "silk" },
+    { pl: "srebro, srebrny", en: "silver" },
+    { pl: "w kropki", en: "spotted" },
+    { pl: "w paski", en: "stripped" },
+    { pl: "w szkocką kratę", en: "tartan" },
+    { pl: "wełna", en: "wool" },
+    { pl: "elastyczny", en: "elastic" },
+    { pl: "futro, futrzany", en: "fur" },
+    { pl: "koronkowy", en: "lacy" },
+    { pl: "na doszewce, ocieplany", en: "lined" }
+  ],
+  c1s4: [
     // { pl: "sprawny", en: "fit" },
     // { pl: "sprawny", en: "fit" },
     // { pl: "sprawny", en: "fit" },
@@ -156,10 +177,10 @@ const questions = {
     // { pl: "sprawny", en: "fit" },
     // { pl: "sprawny", en: "fit" }
   ],
-  c2: [
+  c1s5: [
     { pl: "suka", en: "bitch" },
   ],
-  c3: [
+  c1s6: [
     { pl: "kobieta", en: "woman" },
   ]
   // Add more questions as needed

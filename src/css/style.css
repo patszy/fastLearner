@@ -28,7 +28,7 @@ body {
 }
 
 header {
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   font-size: .5rem;
   width: 50vw;
@@ -80,11 +80,14 @@ aside {
 
 .main__menu ul {
   position: absolute;
-  margin: 10px 0;
   padding: 0;
   width: 100%;
-  left: 0;
   list-style-type: none;
+}
+
+.main__menu > ul {
+  margin: 10px 0;
+  left: 0;
   background-color: var(--main-bg-color);
 }
 
@@ -102,17 +105,36 @@ aside {
   cursor: pointer;
 }
 
-.main__menu li:hover label {
-  color: var(--color-blue);
+li:hover {
+  background-color: var(--color-blue);
   transition: all .3s;
 }
 
-.main__menu input[type="radio"]:checked + label {
-  background-color: initial;
+.sub__menu {
+  display: none;
+  top: 0;
+  left: 100%;
+  background-color: var(--main-bg-color);
+  text-align: left;
+}
+
+.sub__menu li {
+  padding: 10px;
+}
+
+.sub__menu input[type="radio"]:checked + label {
   color: var(--color-blue);
 }
 
-header form {
+.sub__menu li:hover input[type="radio"]:checked + label {
+  color: var(--main-text-color);
+}
+
+li:hover .sub__menu {
+  display: block;
+}
+
+form {
   display: flex;
   justify-content: space-evenly;
 }
@@ -123,22 +145,12 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + label {
-  background-color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 form label {
   position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
   cursor: pointer;
-}
-
-form label i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, -50%);
 }
 
 /* COUNTERS */
