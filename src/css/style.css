@@ -28,7 +28,8 @@ body {
 }
 
 header {
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 10px 0;
   display: flex;
   font-size: .5rem;
   width: 50vw;
@@ -112,10 +113,10 @@ li:hover {
 
 .sub__menu {
   display: none;
-  top: 0;
   left: 100%;
   background-color: var(--main-bg-color);
   text-align: left;
+  transform: translateY(-28px);
 }
 
 .sub__menu li {

@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Faster</title>
-    <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./src/css/style.css">
     <script src="./src/js/questions.js" defer></script>
     <script src="./src/js/main.js" defer></script>
   </head>
   <body>
     <header>
       <nav class="main__menu">
-        <p>Menu</p>
+        <p id="menuTitle">Menu</p>
         <ul>
           <li>Człowiek
             <ul class="sub__menu">
@@ -53,86 +53,390 @@
           <li>Dom
             <ul class="sub__menu">
               <li>
-                <input id="chater_1" type="radio" name="chapter" value="c2s1" checked/>
-                <label for="chater_1">Dane osobowe</label>
+                <input id="c2s1" type="radio" name="chapter" value="c2s1"/>
+                <label for="c2s1">Miejsce zamieszkania</label>
               </li>
               <li>
-                <input id="chater_2" type="radio" name="chapter" value="c2s2"/>
-                <label for="chater_2">Wygląd zewnętrzny</label>
+                <input id="c2s2" type="radio" name="chapter" value="c2s2"/>
+                <label for="c2s2">Opis domu</label>
               </li>
               <li>
-                <input id="chater_3" type="radio" name="chapter" value="c2s3"/>
-                <label for="chater_3">Ubrania</label>
+                <input id="c2s3" type="radio" name="chapter" value="c2s3"/>
+                <label for="c2s3">Prace domowe i ogrodowe</label>
               </li>
               <li>
-                <input id="chater_4" type="radio" name="chapter" value="c2s4"/>
-                <label for="chater_4">Cechy charakteru</label>
+                <input id="c2s4" type="radio" name="chapter" value="c2s4"/>
+                <label for="c2s4">Handel nieruchomościami</label>
               </li>
               <li>
-                <input id="chater_5" type="radio" name="chapter" value="c2s5"/>
-                <label for="chater_5">Uczucia i emocje</label>
-              </li>
-              <li>
-                <input id="chater_6" type="radio" name="chapter" value="c2s6"/>
-                <label for="chater_6">Zainteresowania</label>
-              </li>
-              <li>
-                <input id="chater_7" type="radio" name="chapter" value="c2s7"/>
-                <label for="chater_7">Problemy etyczne</label>
-              </li>
-              <li>
-                <input id="chater_8" type="radio" name="chapter" value="c2s8"/>
-                <label for="chater_8">Inne</label>
+                <input id="c2s5" type="radio" name="chapter" value="c2s5"/>
+                <label for="c2s5">Inne</label>
               </li>
             </ul>
           </li>
           <li>Szkoła
-            <input id="chater_3" type="radio" name="chapter" value="c3"/>
-            <label for="chater_3"></label>
+            <ul class="sub__menu">
+              <li>
+                <input id="c3s1" type="radio" name="chapter" value="c3s1"/>
+                <label for="c3s1">Przedmioty szkolne</label>
+              </li>
+              <li>
+                <input id="c3s2" type="radio" name="chapter" value="c3s2"/>
+                <label for="c3s2">Oceny i wymagania</label>
+              </li>
+              <li>
+                <input id="c3s3" type="radio" name="chapter" value="c3s3"/>
+                <label for="c3s3">Życie szkolne</label>
+              </li>
+              <li>
+                <input id="c3s4" type="radio" name="chapter" value="c3s4"/>
+                <label for="c3s4">Zajęcia pozalekcyjne</label>
+              </li>
+              <li>
+                <input id="c3s5" type="radio" name="chapter" value="c3s5"/>
+                <label for="c3s5">System oświaty</label>
+              </li>
+              <li>
+                <input id="c3s6" type="radio" name="chapter" value="c3s6"/>
+                <label for="c3s6">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_4" type="radio" name="chapter" value="c4"/>
-            <label for="chater_4">Praca</label>
+          <li>Praca
+            <ul class="sub__menu">
+              <li>
+                <input id="c4s1" type="radio" name="chapter" value="c4s1"/>
+                <label for="c4s1">Zawody</label>
+              </li>
+              <li>
+                <input id="c4s2" type="radio" name="chapter" value="c4s2"/>
+                <label for="c4s2">Warunki pracy i zatródnienia</label>
+              </li>
+              <li>
+                <input id="c4s3" type="radio" name="chapter" value="c4s3"/>
+                <label for="c4s3"> Praca dorywcza</label>
+              </li>
+              <li>
+                <input id="c4s4" type="radio" name="chapter" value="c4s4"/>
+                <label for="c4s4">Rynek pracy</label>
+              </li>
+              <li>
+                <input id="c4s5" type="radio" name="chapter" value="c4s5"/>
+                <label for="c4s5">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_5" type="radio" name="chapter" value="c5"/>
-            <label for="chater_5">Życie rodzinne i społeczne</label>
+          <li>Życie rodzinne i towarzyskie
+            <ul class="sub__menu">
+              <li>
+                <input id="c5s1" type="radio" name="chapter" value="c5s1"/>
+                <label for="c5s1">Etapy życia</label>
+              </li>
+              <li>
+                <input id="c5s2" type="radio" name="chapter" value="c5s2"/>
+                <label for="c5s2">Rodzina, przyjaciele i koledzy</label>
+              </li>
+              <li>
+                <input id="c5s3" type="radio" name="chapter" value="c5s3"/>
+                <label for="c5s3">Czynności życia codziennego</label>
+              </li>
+              <li>
+                <input id="c5s4" type="radio" name="chapter" value="c5s4"/>
+                <label for="c5s4">Formy spędzania wolnego czasu</label>
+              </li>
+              <li>
+                <input id="c5s5" type="radio" name="chapter" value="c5s5"/>
+                <label for="c5s5">Święta i uroszystości</label>
+              </li>
+              <li>
+                <input id="c5s6" type="radio" name="chapter" value="c5s6"/>
+                <label for="c5s6">Styl życia, konflikty i prolemy</label>
+              </li>
+              <li>
+                <input id="c5s7" type="radio" name="chapter" value="c5s7"/>
+                <label for="c5s7">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_6" type="radio" name="chapter" value="c6"/>
-            <label for="chater_6">Żywienie</label>
+          <li>Żywienie
+            <ul class="sub__menu">
+              <li>
+                <input id="c6s1" type="radio" name="chapter" value="c6s1"/>
+                <label for="c6s1">Artykuły spożywcze</label>
+              </li>
+              <li>
+                <input id="c6s2" type="radio" name="chapter" value="c6s2"/>
+                <label for="c6s2">Posiłki i gotowanie</label>
+              </li>
+              <li>
+                <input id="c6s3" type="radio" name="chapter" value="c6s3"/>
+                <label for="c6s3">Lokale gastronomiczne</label>
+              </li>
+              <li>
+                <input id="c6s4" type="radio" name="chapter" value="c6s4"/>
+                <label for="c6s4">Diety</label>
+              </li>
+              <li>
+                <input id="c6s5" type="radio" name="chapter" value="c6s5"/>
+                <label for="c6s5">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_7" type="radio" name="chapter" value="c7"/>
-            <label for="chater_7">Zakupy i usługi</label>
+          <li>Zakupy i usługi
+            <ul class="sub__menu">
+              <li>
+                <input id="c7s1" type="radio" name="chapter" value="c7s1"/>
+                <label for="c7s1">Rodzaje sklepów</label>
+              </li>
+              <li>
+                <input id="c7s2" type="radio" name="chapter" value="c7s2"/>
+                <label for="c7s2">Opisywanie towarów</label>
+              </li>
+              <li>
+                <input id="c7s3" type="radio" name="chapter" value="c7s3"/>
+                <label for="c7s3">Sprzedawanie i kupowanie</label>
+              </li>
+              <li>
+                <input id="c7s4" type="radio" name="chapter" value="c7s4"/>
+                <label for="c7s4">Reklamacje</label>
+              </li>
+              <li>
+                <input id="c7s5" type="radio" name="chapter" value="c7s5"/>
+                <label for="c7s5">Reklama</label>
+              </li>
+              <li>
+                <input id="c7s6" type="radio" name="chapter" value="c7s6"/>
+                <label for="c7s6">Korzystanie z usług</label>
+              </li>
+              <li>
+                <input id="c7s7" type="radio" name="chapter" value="c7s7"/>
+                <label for="c7s7">Środki płatnicze</label>
+              </li>
+              <li>
+                <input id="c7s8" type="radio" name="chapter" value="c7s8"/>
+                <label for="c7s8">Banki</label>
+              </li>
+              <li>
+                <input id="c7s9" type="radio" name="chapter" value="c7s9"/>
+                <label for="c7s9">Ubezpieczenie</label>
+              </li>
+              <li>
+                <input id="c7s10" type="radio" name="chapter" value="c7s10"/>
+                <label for="c7s10">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_8" type="radio" name="chapter" value="c8"/>
-            <label for="chater_8">Podróżowanie i turystyka</label>
+          <li>Podróżowanie i turystyka
+            <ul class="sub__menu">
+              <li>
+                <input id="c8s1" type="radio" name="chapter" value="c8s1"/>
+                <label for="c8s1">Podróże i środki transportu</label>
+              </li>
+              <li>
+                <input id="c8s2" type="radio" name="chapter" value="c8s2"/>
+                <label for="c8s2">Informacja turystyczna</label>
+              </li>
+              <li>
+                <input id="c8s3" type="radio" name="chapter" value="c8s3"/>
+                <label for="c8s3">Baza noclegowa</label>
+              </li>
+              <li>
+                <input id="c8s4" type="radio" name="chapter" value="c8s4"/>
+                <label for="c8s4">Wycieczki i zwiedzanie</label>
+              </li>
+              <li>
+                <input id="c8s5" type="radio" name="chapter" value="c8s5"/>
+                <label for="c8s5">Wypadki</label>
+              </li>
+              <li>
+                <input id="c8s6" type="radio" name="chapter" value="c8s6"/>
+                <label for="c8s6">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_9" type="radio" name="chapter" value="c9"/>
-            <label for="chater_9">Kultura</label>
+          <li>Kultura
+            <ul class="sub__menu">
+              <li>
+                <input id="c9s1" type="radio" name="chapter" value="c9s1"/>
+                <label for="c9s1">Dziedziny kultury</label>
+              </li>
+              <li>
+                <input id="c9s2" type="radio" name="chapter" value="c9s2"/>
+                <label for="c9s2">Twórcy i dzieła</label>
+              </li>
+              <li>
+                <input id="c9s3" type="radio" name="chapter" value="c9s3"/>
+                <label for="c9s3">Uczectnicwto w kulturze</label>
+              </li>
+              <li>
+                <input id="c9s4" type="radio" name="chapter" value="c9s4"/>
+                <label for="c9s4">Media</label>
+              </li>
+              <li>
+                <input id="c9s5" type="radio" name="chapter" value="c9s5"/>
+                <label for="c9s5">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_10" type="radio" name="chapter" value="c10"/>
-            <label for="chater_10">Sport</label>
+          <li>Sport
+            <ul class="sub__menu">
+              <li>
+                <input id="c10s1" type="radio" name="chapter" value="c10s1"/>
+                <label for="c10s1">Dyscypliny sportu</label>
+              </li>
+              <li>
+                <input id="c10s2" type="radio" name="chapter" value="c10s2"/>
+                <label for="c10s2">Imprezy sportowe</label>
+              </li>
+              <li>
+                <input id="c10s3" type="radio" name="chapter" value="c10s3"/>
+                <label for="c10s3">Sport wyczynowy</label>
+              </li>
+              <li>
+                <input id="c10s4" type="radio" name="chapter" value="c10s4"/>
+                <label for="c10s4">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_11" type="radio" name="chapter" value="c11"/>
-            <label for="chater_11">Zdrowie</label>
+          <li>Zdrowie
+            <ul class="sub__menu">
+              <li>
+                <input id="c11s1" type="radio" name="chapter" value="c11s1"/>
+                <label for="c11s1">Samopoczucie</label>
+              </li>
+              <li>
+                <input id="c11s2" type="radio" name="chapter" value="c11s2"/>
+                <label for="c11s2">Części ciała</label>
+              </li>
+              <li>
+                <input id="c11s3" type="radio" name="chapter" value="c11s3"/>
+                <label for="c11s3">Choroby, objawy i leczenie</label>
+              </li>
+              <li>
+                <input id="c11s4" type="radio" name="chapter" value="c11s4"/>
+                <label for="c11s4">Zdrowy styl życia</label>
+              </li>
+              <li>
+                <input id="c11s5" type="radio" name="chapter" value="c11s5"/>
+                <label for="c11s5">Niepełnosprawni</label>
+              </li>
+              <li>
+                <input id="c11s6" type="radio" name="chapter" value="c11s6"/>
+                <label for="c11s6">Uzalenienia</label>
+              </li>
+              <li>
+                <input id="c11s7" type="radio" name="chapter" value="c11s7"/>
+                <label for="c11s7">Ochrona zdrowia</label>
+              </li>
+              <li>
+                <input id="c11s8" type="radio" name="chapter" value="c11s8"/>
+                <label for="c11s8">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_12" type="radio" name="chapter" value="c12"/>
-            <label for="chater_12">Nauka i technika</label>
+          <li>Nauka i technika
+            <ul class="sub__menu">
+              <li>
+                <input id="c12s1" type="radio" name="chapter" value="c12s1"/>
+                <label for="c12s1">Dziedziny nauki i naukowcy</label>
+              </li>
+              <li>
+                <input id="c12s2" type="radio" name="chapter" value="c12s2"/>
+                <label for="c12s2">Wynalazki i odkrycia</label>
+              </li>
+              <li>
+                <input id="c12s3" type="radio" name="chapter" value="c12s3"/>
+                <label for="c12s3">Badania naukowe</label>
+              </li>
+              <li>
+                <input id="c12s4" type="radio" name="chapter" value="c12s4"/>
+                <label for="c12s4">Korzystanie z urządzeń technicznych</label>
+              </li>
+              <li>
+                <input id="c12s5" type="radio" name="chapter" value="c12s5"/>
+                <label for="c12s5">Technologie informacyjno-komunikacyjne</label>
+              </li>
+              <li>
+                <input id="c12s6" type="radio" name="chapter" value="c12s6"/>
+                <label for="c12s6">Awarie techniczne</label>
+              </li>
+              <li>
+                <input id="c12s7" type="radio" name="chapter" value="c12s7"/>
+                <label for="c12s7">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_13" type="radio" name="chapter" value="c13"/>
-            <label for="chater_13">Świat przyrody</label>
+          <li>Świat przyrody
+            <ul class="sub__menu">
+              <li>
+                <input id="c13s1" type="radio" name="chapter" value="c13s1"/>
+                <label for="c13s1">Pogoda i klimat</label>
+              </li>
+              <li>
+                <input id="c13s2" type="radio" name="chapter" value="c13s2"/>
+                <label for="c13s2">Świat roślin i zwierząt</label>
+              </li>
+              <li>
+                <input id="c13s3" type="radio" name="chapter" value="c13s3"/>
+                <label for="c13s3">Krajobraz</label>
+              </li>
+              <li>
+                <input id="c13s4" type="radio" name="chapter" value="c13s4"/>
+                <label for="c13s4">Zagroenia środowiska</label>
+              </li>
+              <li>
+                <input id="c13s5" type="radio" name="chapter" value="c13s5"/>
+                <label for="c13s5">Ochrona środowiska</label>
+              </li>
+              <li>
+                <input id="c13s6" type="radio" name="chapter" value="c13s6"/>
+                <label for="c13s6">Klęski żywiołowe</label>
+              </li>
+              <li>
+                <input id="c13s7" type="radio" name="chapter" value="c13s7"/>
+                <label for="c13s7">Przestrzeń kosmiczna</label>
+              </li>
+              <li>
+                <input id="c13s8" type="radio" name="chapter" value="c13s8"/>
+                <label for="c13s8">Inne</label>
+              </li>
+            </ul>
           </li>
-          <li>
-            <input id="chater_14" type="radio" name="chapter" value="c14"/>
-            <label for="chater_14">Państwo i społeczeństwo</label>
+          <li>Państwo i społeczeństwo
+            <ul class="sub__menu">
+              <li>
+                <input id="c14s1" type="radio" name="chapter" value="c14s1"/>
+                <label for="c14s1">Struktura państwa i urzędy</label>
+              </li>
+              <li>
+                <input id="c14s2" type="radio" name="chapter" value="c14s2"/>
+                <label for="c14s2">Organizacje społeczne i międzynarodowe</label>
+              </li>
+              <li>
+                <input id="c14s3" type="radio" name="chapter" value="c14s3"/>
+                <label for="c14s3">Konflikty domowe i międzynarodowe</label>
+              </li>
+              <li>
+                <input id="c14s4" type="radio" name="chapter" value="c14s4"/>
+                <label for="c14s4">Przestępczość</label>
+              </li>
+              <li>
+                <input id="c14s5" type="radio" name="chapter" value="c14s5"/>
+                <label for="c14s5">Wymiar sprawiedliwości</label>
+              </li>
+              <li>
+                <input id="c14s6" type="radio" name="chapter" value="c14s6"/>
+                <label for="c14s6">Polityka społeczna</label>
+              </li>
+              <li>
+                <input id="c14s7" type="radio" name="chapter" value="c14s7"/>
+                <label for="c14s7">Gospodarka</label>
+              </li>
+              <li>
+                <input id="c14s8" type="radio" name="chapter" value="c14s8"/>
+                <label for="c14s8">Inne</label>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>

@@ -20,6 +20,7 @@ const chapterRadio = document.querySelectorAll(`input[type="radio"][name="chapte
 const languageRadio = document.querySelectorAll(`input[type="radio"][name="language"]`);
 const goodAnswers = document.getElementById('goodAnswers');
 const badAnswers = document.getElementById('badAnswers');
+const menuTitle = document.getElementById('menuTitle');
 const paragraphElement = document.createElement('p');
 
 let drawRandom = (min, max) => { return Math.floor(Math.random() * (max - min + 1) + min); }
@@ -127,6 +128,7 @@ answerE.addEventListener(`keyup`, checkAnswer);
 chapterRadio.forEach(input => {
   input.addEventListener(`change`, (event) => {
     options.chapter = event.target.value;
+    menuTitle.textContent = event.target.nextElementSibling.textContent;
     start();
   });
 });

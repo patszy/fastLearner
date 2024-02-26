@@ -316,93 +316,96 @@ const questions = {
     { pl: "nawiązać", en: "strike up", tip: "konwersację" }
   ],
   c2s1: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c2s2: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c2s3: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c2s4: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c2s5: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c3s1: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c3s2: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c3s3: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c3s4: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c3s5: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
+  ],
+  c3s6: [
+    { pl: "x", en: "x" },
   ],
   c4s1: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c4s2: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c4s3: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c4s4: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c4s5: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c5s1: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c5s2: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c5s3: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c5s4: [
-    { pl: "kobieta", en: "woman" },
+    { pl: "x", en: "x" },
   ],
   c5s5: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c5s6: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
   c5s7: [
-    { pl: "suka", en: "bitch" },
+    { pl: "x", en: "x" },
   ],
 
   // Add more questions as needed
 };
 
 // cxs1: [
-//   { pl: "suka", en: "bitch" },
+//   { pl: "x", en: "x" },
 // ],
 // cxs2: [
-//   { pl: "kobieta", en: "woman" },
+//   { pl: "x", en: "x" },
 // ],
 // cxs3: [
-//   { pl: "suka", en: "bitch" },
+//   { pl: "x", en: "x" },
 // ],
 // cxs4: [
-//   { pl: "kobieta", en: "woman" },
+//   { pl: "x", en: "x" },
 // ],
 // cxs5: [
-//   { pl: "suka", en: "bitch" },
+//   { pl: "x", en: "x" },
 // ],
 // cxs6: [
-//   { pl: "suka", en: "bitch" },
+//   { pl: "x", en: "x" },
 // ],
 // cxs7: [
-//   { pl: "suka", en: "bitch" },
+//   { pl: "x", en: "x" },
 // ],
