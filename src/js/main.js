@@ -1,7 +1,6 @@
-let good = [], bad = [];
-let questionIndex;
+let good = [], bad = [], questions = [], questionIndex;
 let options = {
-  chapter: Object.keys(questions)[0],
+  chapter: Object.keys(allQuestions)[0],
   language: {
     origin: `pl`,
     translate: `en`,
@@ -9,6 +8,7 @@ let options = {
   },
   counter: 0
 };
+questions = allQuestions[options.chapter];
 
 const question = document.getElementById(`question`);
 const tipE = document.getElementById(`tip`);
@@ -25,8 +25,8 @@ const paragraphElement = document.createElement('p');
 
 let drawRandom = (min, max) => { return Math.floor(Math.random() * (max - min + 1) + min); }
 
-let displayQuestion = (questionIndex) => {
-  const questionTmp = questions[options.chapter][questionIndex];
+let displayQuestion = (index) => {
+  const questionTmp = questions[index];
   question.textContent = `${questionTmp[options.language.origin]}`;
   tipE.textContent = questionTmp.tip ? `${questionTmp.tip}` : ``;
 }
@@ -38,46 +38,48 @@ let chooseLang = () => {
 let drawQuestion = () => {
   chooseLang();
 
-  do questionIndex = drawRandom(0, questions[options.chapter].length-1);
+  do questionIndex = drawRandom(0, questions.length-1);
   while(good.includes(questionIndex));
 
   return questionIndex;
 }
 
 let addGoodAnswer = (index) => {
-  good.push(questionIndex);
-  createP(`${questions[options.chapter][index].pl} - ${questions[options.chapter][index].en}`, goodAnswers);
+  good.push(index);
+  createP(`${questions[index].pl} - ${questions[index].en}`, goodAnswers);
 }
 
 let addBadAnswer = (index) => {
   if(!bad.includes(index)) {
     bad.push(index);
-    createP(`${questions[options.chapter][index].pl} - ${questions[options.chapter][index].en}`, badAnswers);
+    createP(`${questions[index].pl} - ${questions[index].en}`, badAnswers);
   }
 }
 
 let checkAnswer = () => {
   const userAnswer = answerE.value.trim().toLowerCase();
-  const correctAnswer = questions[options.chapter][questionIndex][options.language.translate].trim().toLowerCase();
+  const correctAnswer = questions[questionIndex][options.language.translate].trim().toLowerCase();
   
   if (userAnswer === correctAnswer) {
     answerE.classList.add(`correct`);
     answerE.value = ``;
     options.counter--;
     addGoodAnswer(questionIndex);
+    deleteBad(questions[questionIndex]);
     updateCounter(mainCounter, options.counter);
     updateCounter(goodCounter, good.length);
-    if(good.length != questions[options.chapter].length) displayQuestion(drawQuestion());
+    if(good.length != questions.length) displayQuestion(drawQuestion());
     else finish();
   } else answerE.classList.remove(`correct`);
 }
 
-let toggleAnswerRestart = () => {
+let toggleBadAnswerRestart = () => {
   if(answerE.hasAttribute(`disabled`)) {
     start();
   } else {
     answerE.value = ``;
     addBadAnswer(questionIndex);
+    saveBad(questions[questionIndex]);
     updateCounter(badCounter, bad.length);
     displayQuestion(drawQuestion());
   }
@@ -89,9 +91,8 @@ let updateCounter = (counter, value) => {
 
 let start = () => {
   answerE.removeAttribute(`disabled`);
-  answerE.value = ``;
-  good = [], bad = [];
-  options.counter = questions[options.chapter].length;
+  answerE.value = ``, good = [], bad = [];
+  options.counter = questions.length;
   removeAllP(goodAnswers);
   removeAllP(badAnswers);
   displayQuestion(drawQuestion());
@@ -102,8 +103,7 @@ let start = () => {
 
 let finish = () => {
   answerE.setAttribute(`disabled`, `disabled`);
-  question.textContent = ``;
-  tipE.textContent = ``;
+  question.textContent = ``, tipE.textContent = ``;
   answerE.value = `Passed`;
 }
 
@@ -119,16 +119,51 @@ let removeAllP = (parent) => {
   });
 }
 
+let loadBad = () => {
+  if(localStorage.getItem('badAnswers') !== null) return JSON.parse(localStorage.getItem('badAnswers'));
+
+  return null;
+}
+
+let saveBad = (question) => {
+  //Load bad questions
+  let oldBad = loadBad() || [];
+    
+  //Check is question saved already, if not add
+  if(!oldBad.find(item => JSON.stringify(item) === JSON.stringify(question))) oldBad.push(question);
+
+  //Save in storage
+  localStorage.setItem('badAnswers', JSON.stringify(oldBad));
+}
+
+let deleteBad = (question) => {
+  //Load bad questions
+  let oldBad = loadBad() || [];
+
+  //Delete question
+  oldBad = oldBad.filter(item => JSON.stringify(item) !== JSON.stringify(question));
+
+  //Save in storage
+  localStorage.setItem('badAnswers', JSON.stringify(oldBad));
+}
+
 document.addEventListener(`keypress`, (event) => {
-  if(event.key === `Enter`) {
-    toggleAnswerRestart(); 
-  }
+  if(event.key === `Enter`) toggleBadAnswerRestart();
 });
+
 answerE.addEventListener(`keyup`, checkAnswer);
 chapterRadio.forEach(input => {
   input.addEventListener(`change`, (event) => {
     options.chapter = event.target.value;
     menuTitle.textContent = event.target.nextElementSibling.textContent;
+
+    if(event.target.value === `bad` && loadBad().length !== 0) questions = loadBad();
+    else {
+      questions = [];
+      question.textContent = `Brak pytań`;
+      questions = allQuestions[options.chapter];
+    }
+    
     start();
   });
 });

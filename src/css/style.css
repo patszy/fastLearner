@@ -123,11 +123,7 @@ li:hover {
   padding: 10px;
 }
 
-.sub__menu input[type="radio"]:checked + label {
-  color: var(--color-blue);
-}
-
-.sub__menu li:hover input[type="radio"]:checked + label {
+li:hover input[type="radio"]:checked + label {
   color: var(--main-text-color);
 }
 
@@ -152,6 +148,10 @@ input[type="radio"]:checked + label {
 form label {
   position: relative;
   cursor: pointer;
+}
+
+input[value="bad"] + label {
+  color: var(--color-red);
 }
 
 /* COUNTERS */
