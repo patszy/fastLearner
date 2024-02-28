@@ -39,7 +39,7 @@ let drawQuestion = () => {
   chooseLang();
 
   do questionIndex = drawRandom(0, questions.length-1);
-  while(good.includes(questionIndex));
+  while(good.includes(questionIndex) || bad.includes(questionIndex));
 
   return questionIndex;
 }
@@ -68,7 +68,8 @@ let checkAnswer = () => {
     deleteBad(questions[questionIndex]);
     updateCounter(mainCounter, options.counter);
     updateCounter(goodCounter, good.length);
-    if(good.length != questions.length) displayQuestion(drawQuestion());
+
+    if(good.length + bad.length != questions.length) displayQuestion(drawQuestion());
     else finish();
   } else answerE.classList.remove(`correct`);
 }
@@ -78,10 +79,13 @@ let toggleBadAnswerRestart = () => {
     start();
   } else {
     answerE.value = ``;
+    options.counter--;
     addBadAnswer(questionIndex);
     saveBad(questions[questionIndex]);
+    updateCounter(mainCounter, options.counter);
     updateCounter(badCounter, bad.length);
-    displayQuestion(drawQuestion());
+    if(good.length + bad.length != questions.length) displayQuestion(drawQuestion());
+    else finish();
   }
 }
 
@@ -104,7 +108,8 @@ let start = () => {
 let finish = () => {
   answerE.setAttribute(`disabled`, `disabled`);
   question.textContent = ``, tipE.textContent = ``;
-  answerE.value = `Passed`;
+  if(bad.length == 0) answerE.value = `Passed`;
+  else answerE.value = `Dobre: ${good.length}  Złe: ${bad.length}`;
 }
 
 let createP = (content, parent) => {
@@ -149,6 +154,8 @@ let deleteBad = (question) => {
 
 document.addEventListener(`keypress`, (event) => {
   if(event.key === `Enter`) toggleBadAnswerRestart();
+  // if(event.key === `s`) console.log(JSON.parse(localStorage.getItem("badAnswers")));
+  // if(event.key === `c`) localStorage.clear();
 });
 
 answerE.addEventListener(`keyup`, checkAnswer);

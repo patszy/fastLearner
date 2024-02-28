@@ -420,7 +420,9 @@ const allQuestions = {
     { pl: "panele słoneczne", en: "solar panels" },
     { pl: "poręcz przy schodach", en: "stair rail" },
     { pl: "pomieszczenie gospodarcze", en: "utility room" },
-    { pl: "parapet okienny", en: "windowsill" },
+    { pl: "parapet okienny", en: "windowsill" }
+  ],
+  c2s3: [
     { pl: "przestronny", en: "airy" },
     { pl: "cegła", en: "brick" },
     { pl: "jasny", en: "bright" },
@@ -438,9 +440,10 @@ const allQuestions = {
     { pl: "nowoczesny", en: "modern" },
     { pl: "błoto", en: "mud" },
     { pl: "używany, z drugiej ręki", en: "second-hand" },
-    { pl: "przestronny stalowy", en: "spacious steel" },
+    { pl: "przestronny", en: "spacious" },
+    { pl: "stalowy", en: "steel" },
     { pl: "kamienny", en: "stone" },
-    { pl: "posprzątany/nieposprzątany", en: "tidy/ untidy" },
+    { pl: "posprzątany/nieposprzątany", en: "tidy/untidy" },
     { pl: "drewniany", en: "wooden" },
     { pl: "źle wykończony", en: "badly-decorated" },
     { pl: "ciasny", en: "cramped" },
@@ -452,6 +455,8 @@ const allQuestions = {
     { pl: "o unikalnym wyglądzie", en: "unique-looking" },
     { pl: "dobrze utrzymany, zadbany", en: "well-maintained" },
     { pl: "meble", en: "furniture" },
+  ],
+  c2s4: [
     { pl: "budzik", en: "alarm clock" },
     { pl: "fotel", en: "armchair" },
     { pl: "wanna", en: "bath" },
@@ -476,7 +481,6 @@ const allQuestions = {
     { pl: "podwójne łóżko", en: "double bed" },
     { pl: "kołdra", en: "duvet" },
     { pl: "wyposażenie, sprzęt", en: "equipment" },
-    { pl: "kominek", en: "fireplace" },
     { pl: "wykładzina dywanowa", en: "fitted carpet" },
     { pl: "doniczka", en: "flowerpot" },
     { pl: "zamrażarka", en: "freezer" },
@@ -520,7 +524,7 @@ const allQuestions = {
     { pl: "srebrna ramka", en: "silver frame" },
     { pl: "półka, stojak", en: "rack" }
   ],
-  c2s3: [
+  c2s5: [
     { pl: "gospodarstwo domowe", en: "household" },
     { pl: "zmienić pościel", en: "change the sheets" },
     { pl: "pracować w ogrodzie", en: "do the gardening" },
@@ -542,16 +546,16 @@ const allQuestions = {
     { pl: "szpadel", en: "spade" },
     { pl: "rydel", en: "trowel" }
   ],
-  c2s4: [
+  c2s6: [
     { pl: "zakwaterowanie", en: "accommodation" },
     { pl: "ogłoszenie, reklama", en: "ad/advert" },
-    { pl: "współlokator/współlokatorka", en: "flatmate/housemate/roommate" },
+    { pl: "współlokator/współlokatorka", en: "flatmate/roommate/housemate" },
     { pl: "na sprzedaż", en: "for sale" },
     { pl: "właściciel/właścicielka", en: "landlord/landlady", tip: "mieszkania lub domu" },
     { pl: "mieszkać samemu", en: "live on one's own" },
     { pl: "wprowadzić się/wyprowadzić się", en: "move in/move out" },
     { pl: "zapłacić z góry", en: "pay in advance" },
-    { pl: "wynająć; czynsz", en: "rent" },
+    { pl: "wynająć, czynsz", en: "rent" },
     { pl: "dzielić z kimś pokój/mieszkanie/dom", en: "share a room/flat/house" },
     { pl: "do wynajęcia", en: "to let" },
     { pl: "rachunek", en: "bill" },
@@ -567,7 +571,7 @@ const allQuestions = {
     { pl: "wziąć kredyt hipoteczny", en: "take out a mortgage" },
     { pl: "najemca, lokator", en: "tenant" }
   ],
-  c2s5: [
+  c2s7: [
     { pl: "w przystępnej cenie", en: "affordable" },
     { pl: "poza", en: "beyond" },
     { pl: "skarżyć się, narzekać", en: "complain" },
@@ -578,7 +582,7 @@ const allQuestions = {
     { pl: "w pobliżu, pobliski", en: "nearby" },
     { pl: "niebezpieczny", en: "rough" },
     { pl: "ostry", en: "sharp" },
-    { pl: "wzdychać; westchnienie", en: "sigh" },
+    { pl: "wzdychać, westchnienie", en: "sigh" },
     { pl: "wpatrywać się w", en: "stare at" },
     { pl: "dąsać się", en: "sulk" },
     { pl: "maleńki, niewielki", en: "tiny" },
