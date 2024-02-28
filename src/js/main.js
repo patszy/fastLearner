@@ -18,21 +18,24 @@ const goodCounter = document.querySelector(`#goodAnswers .counter`);
 const badCounter = document.querySelector(`#badAnswers .counter`);
 const chapterRadio = document.querySelectorAll(`input[type="radio"][name="chapter"]`);
 const languageRadio = document.querySelectorAll(`input[type="radio"][name="language"]`);
-const goodAnswers = document.getElementById('goodAnswers');
-const badAnswers = document.getElementById('badAnswers');
-const menuTitle = document.getElementById('menuTitle');
-const paragraphElement = document.createElement('p');
+const goodAnswers = document.getElementById(`goodAnswers`);
+const badAnswers = document.getElementById(`badAnswers`);
+const menuTitle = document.getElementById(`menuTitle`);
+const deleteBtn = document.getElementById(`deleteBtn`);
+const paragraphElement = document.createElement(`p`);
+
+// QUESTION AND ANSWER FUNCTIONS
 
 let drawRandom = (min, max) => { return Math.floor(Math.random() * (max - min + 1) + min); }
+
+let chooseLang = () => {
+  if(options.language.mix) if(Math.random() > .5) { options.language.origin = `pl`; options.language.translate = `en`; } else { options.language.origin = `en`; options.language.translate = `pl`; };
+}
 
 let displayQuestion = (index) => {
   const questionTmp = questions[index];
   question.textContent = `${questionTmp[options.language.origin]}`;
   tipE.textContent = questionTmp.tip ? `${questionTmp.tip}` : ``;
-}
-
-let chooseLang = () => {
-  if(options.language.mix) if(Math.random() > .5) { options.language.origin = `pl`; options.language.translate = `en`; } else { options.language.origin = `en`; options.language.translate = `pl`; };
 }
 
 let drawQuestion = () => {
@@ -55,6 +58,8 @@ let addBadAnswer = (index) => {
     createP(`${questions[index].pl} - ${questions[index].en}`, badAnswers);
   }
 }
+
+// CHECK ANSWER AND REACT
 
 let checkAnswer = () => {
   const userAnswer = answerE.value.trim().toLowerCase();
@@ -93,6 +98,8 @@ let updateCounter = (counter, value) => {
   counter.textContent = value;
 }
 
+// START AND FINISH SETTINGS
+
 let start = () => {
   answerE.removeAttribute(`disabled`);
   answerE.value = ``, good = [], bad = [];
@@ -112,53 +119,54 @@ let finish = () => {
   else answerE.value = `Dobre: ${good.length}  Złe: ${bad.length}`;
 }
 
+// CREATE AND REMOVE PARAGRAPH FUNCTIONS
+
 let createP = (content, parent) => {
-  let p = document.createElement('p');
+  let p = document.createElement(`p`);
   p.textContent = content;
   parent.appendChild(p);
 }
 
 let removeAllP = (parent) => {
-  Array.from(parent.getElementsByTagName('p')).forEach(p => {
+  Array.from(parent.getElementsByTagName(`p`)).forEach(p => {
     p.remove();
   });
 }
 
+// BAD ANSWERS
+
 let loadBad = () => {
-  if(localStorage.getItem('badAnswers') !== null) return JSON.parse(localStorage.getItem('badAnswers'));
+  if(localStorage.getItem(`badAnswers`) !== null) return JSON.parse(localStorage.getItem(`badAnswers`));
 
   return null;
 }
 
 let saveBad = (question) => {
-  //Load bad questions
   let oldBad = loadBad() || [];
-    
-  //Check is question saved already, if not add
   if(!oldBad.find(item => JSON.stringify(item) === JSON.stringify(question))) oldBad.push(question);
-
-  //Save in storage
-  localStorage.setItem('badAnswers', JSON.stringify(oldBad));
+  localStorage.setItem(`badAnswers`, JSON.stringify(oldBad));
 }
 
 let deleteBad = (question) => {
-  //Load bad questions
   let oldBad = loadBad() || [];
-
-  //Delete question
   oldBad = oldBad.filter(item => JSON.stringify(item) !== JSON.stringify(question));
-
-  //Save in storage
-  localStorage.setItem('badAnswers', JSON.stringify(oldBad));
+  localStorage.setItem(`badAnswers`, JSON.stringify(oldBad));
 }
+
+// EVENT LISTENERS
 
 document.addEventListener(`keypress`, (event) => {
   if(event.key === `Enter`) toggleBadAnswerRestart();
-  // if(event.key === `s`) console.log(JSON.parse(localStorage.getItem("badAnswers")));
+  // For tests
+  // if(event.key === `s`) console.log(JSON.parse(localStorage.getItem(`badAnswers`)));
   // if(event.key === `c`) localStorage.clear();
 });
 
 answerE.addEventListener(`keyup`, checkAnswer);
+deleteBtn.addEventListener(`click`, () => {
+  localStorage.removeItem(`badAnswers`);
+  console.log(JSON.parse(localStorage.getItem(`badAnswers`)));
+});
 chapterRadio.forEach(input => {
   input.addEventListener(`change`, (event) => {
     options.chapter = event.target.value;
@@ -169,6 +177,7 @@ chapterRadio.forEach(input => {
       questions = [];
       question.textContent = `Brak pytań`;
       questions = allQuestions[options.chapter];
+      updateCounter(mainCounter, 0);
     }
     
     start();

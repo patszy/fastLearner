@@ -154,6 +154,26 @@ input[value="bad"] + label {
   color: var(--color-red);
 }
 
+.main__menu li:nth-child(15) {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main__menu:hover li:nth-child(15) {
+  display: flex;
+}
+
+#deleteBtn {
+  font-size: .5rem;
+  text-transform: uppercase;
+  color: var(--color-red);
+  cursor: pointer;
+  background-color: transparent;
+  border-color: var(--color-blue);
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
 /* COUNTERS */
 
 .counter {

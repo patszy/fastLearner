@@ -52,6 +52,8 @@ Chapter "Bad Answers" let you train incorrect answers from all chapters.
 
 After selecting a "Bad Answers" chapter from menu words are randomly loaded from saved words in local storage.
 
+You can delete all incorrect answers by clicking "Delete" button in menu.
+
 ### Choose language
 
 In header there are 3 icons.
