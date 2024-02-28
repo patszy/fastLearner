@@ -14,7 +14,7 @@ Below word is input.
 
 You can write in input your answer.
 - If its correct it displays in left aside, and is not randomly loaded again.
-- If its incorrect it displays in correct aside, is saved in local storage, and is not randomly loaded again.
+- If its incorrect it displays in right aside, is saved in local storage, and is not randomly loaded again.
 
 On page u have 3 counters.
 - The main, middle located counter displays the number of words to answer.
@@ -57,4 +57,4 @@ After selecting a "Bad Answers" chapter from menu words are randomly loaded from
 In header there are 3 icons.
 - The flag on the left is the option to translate from Polish to English.
 - The flag in the middle is the option to translate from English to Polish.
-- The flag on the correct is the option to randomly translate from one language to another.
+- The flag on the correct is the option to randomly translate.
