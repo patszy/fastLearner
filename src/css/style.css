@@ -23,43 +23,46 @@ body, html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: var(--main-bg-color);
   letter-spacing: 3px;
 }
 
 header {
-  margin: 0 auto;
+  position: fixed;
   padding: 10px 0;
+  background-color: var(--main-bg-color);
   display: flex;
   font-size: .5rem;
-  width: 50vw;
+  width: 100%;
   text-align: center;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: var();
+  z-index: 999;
 }
 
 main {
-  width: 100vw;
+  width: 50%;
   text-align: center;
-  margin-top: 10vw;
 }
 
 aside {
-  position: absolute;
-  top: 0;
-  background-color: var(--color-shadow);
-  padding: 10px;
-  height: 100vh;
-  text-align: center;
-  line-height: 0;
   font-size: .4rem;
-  min-width: 25vw;
+  width: 25%;
+  padding: 65px 20px 20px;
+}
+
+.wrapper {
   display: flex;
+}
+
+main .wrapper {
+  position: fixed;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
   flex-direction: column;
-  justify-content: center;
-  overflow-y: auto;
-  letter-spacing: 1px;
+  z-index: 100;
 }
 
 /* HEADER ELEMENTS*/
@@ -90,7 +93,7 @@ input[type="radio"] {
   color: var(--color-blue);
 }
 
-input[type="radio"]:checked + label, input[value="bad"] + label {
+input[type="radio"]:checked + label{
   color: var(--color-blue);
 }
 
@@ -101,13 +104,12 @@ li:hover {
 
 .main__menu, form {
   padding: 10px;
-  width: 50%;
+  width: 25%;
 }
 
 .main__menu, label{
   position: relative;
   cursor: pointer;
-  z-index: 1;
 }
 
 .main__menu > ul {
@@ -132,14 +134,12 @@ li:hover > input[type="radio"]:checked + label {
   color: var(--main-text-color);
 }
 
-.main__menu > li:last-child {
+.main__menu li:last-child {
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.main__menu:hover > li:last-child {
-  display: flex;
-}
 
 #deleteBtn {
   font-size: .5rem;
@@ -154,21 +154,14 @@ li:hover > input[type="radio"]:checked + label {
 
 /* COUNTERS */
 
-.counter {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 main .counter {
-  bottom: 20px;
   font-size: .7rem;
+  margin-top: 20%;
 }
 
-.answers .counter {
+header .counter {
   font-size: .5rem;
-  top: 20px;
-  color: var(--main-text-color);
+  width: 25%;
 }
 
 /* MAIN ELEMENTS */
@@ -181,7 +174,7 @@ main .counter {
 
 #tip {
   font-size: .5rem;
-  margin-top: 0;
+  margin: 0;
   color: var(--color-blue);
   font-style: oblique;
 }
@@ -202,7 +195,9 @@ main .counter {
 /* ASIDE ELEMENTS */
 
 aside p {
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
+  line-height: 1.3em;
+  letter-spacing: 2px;
 }
 
 #goodAnswers {

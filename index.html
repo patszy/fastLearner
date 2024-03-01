@@ -11,6 +11,7 @@
   </head>
   <body>
     <header>
+      <div id="goodCounter" class="counter">0</div>
       <nav class="main__menu">
         <p id="menuTitle">Menu</p>
         <ul>
@@ -30,23 +31,27 @@
               </li>
               <li>
                 <input id="c1s4" type="radio" name="chapter" value="c1s4"/>
-                <label for="c1s4">Cechy charakteru</label>
+                <label for="c1s4">Dodatki, Wzory i materiały</label>
               </li>
               <li>
                 <input id="c1s5" type="radio" name="chapter" value="c1s5"/>
-                <label for="c1s5">Uczucia i emocje</label>
+                <label for="c1s5">Cechy charakteru</label>
               </li>
               <li>
                 <input id="c1s6" type="radio" name="chapter" value="c1s6"/>
-                <label for="c1s6">Zainteresowania</label>
+                <label for="c1s6">Uczucia i emocje</label>
               </li>
               <li>
                 <input id="c1s7" type="radio" name="chapter" value="c1s7"/>
-                <label for="c1s7">Problemy etyczne</label>
+                <label for="c1s7">Zainteresowania</label>
               </li>
               <li>
                 <input id="c1s8" type="radio" name="chapter" value="c1s8"/>
-                <label for="c1s8">Inne</label>
+                <label for="c1s8">Problemy etyczne</label>
+              </li>
+              <li>
+                <input id="c1s9" type="radio" name="chapter" value="c1s9"/>
+                <label for="c1s9">Inne</label>
               </li>
             </ul>
           </li>
@@ -54,31 +59,35 @@
             <ul class="sub__menu">
               <li>
                 <input id="c2s1" type="radio" name="chapter" value="c2s1"/>
-                <label for="c2s1">Miejsce zamieszkania</label>
+                <label for="c2s1">Rodzaje domów</label>
               </li>
               <li>
                 <input id="c2s2" type="radio" name="chapter" value="c2s2"/>
-                <label for="c2s2">Pomieszczenia</label>
+                <label for="c2s2">Położenie</label>
               </li>
               <li>
                 <input id="c2s3" type="radio" name="chapter" value="c2s3"/>
-                <label for="c2s3">Opis domu</label>
+                <label for="c2s3">Pomieszczenia</label>
               </li>
               <li>
                 <input id="c2s4" type="radio" name="chapter" value="c2s4"/>
-                <label for="c2s4">Wyposażenie</label>
+                <label for="c2s4">Opis domu</label>
               </li>
               <li>
                 <input id="c2s5" type="radio" name="chapter" value="c2s5"/>
-                <label for="c2s5">Prace domowe i ogrodowe</label>
+                <label for="c2s5">Wyposażenie</label>
               </li>
               <li>
                 <input id="c2s6" type="radio" name="chapter" value="c2s6"/>
-                <label for="c2s6">Handel nieruchomościami</label>
+                <label for="c2s6">Prace domowe i ogrodowe</label>
               </li>
               <li>
                 <input id="c2s7" type="radio" name="chapter" value="c2s7"/>
-                <label for="c2s7">Inne</label>
+                <label for="c2s7">Handel nieruchomościami</label>
+              </li>
+              <li>
+                <input id="c2s8" type="radio" name="chapter" value="c2s8"/>
+                <label for="c2s8">Inne</label>
               </li>
             </ul>
           </li>
@@ -98,15 +107,23 @@
               </li>
               <li>
                 <input id="c3s4" type="radio" name="chapter" value="c3s4"/>
-                <label for="c3s4">Zajęcia pozalekcyjne</label>
+                <label for="c3s4">Ludzie</label>
               </li>
               <li>
                 <input id="c3s5" type="radio" name="chapter" value="c3s5"/>
-                <label for="c3s5">System oświaty</label>
+                <label for="c3s5">Miejsca w szkole</label>
               </li>
               <li>
                 <input id="c3s6" type="radio" name="chapter" value="c3s6"/>
-                <label for="c3s6">Inne</label>
+                <label for="c3s6">Zajęcia pozalekcyjne</label>
+              </li>
+              <li>
+                <input id="c3s7" type="radio" name="chapter" value="c3s7"/>
+                <label for="c3s7">System oświaty</label>
+              </li>
+              <li>
+                <input id="c3s8" type="radio" name="chapter" value="c3s8"/>
+                <label for="c3s8">Inne</label>
               </li>
             </ul>
           </li>
@@ -462,18 +479,19 @@
         <input id="language_mix" type="radio" name="language" value="mix"/>
         <label for="language_mix" title="Losowo"><i class="fa-solid fa-shuffle"></i></label>
       </form>
+      <div id="badCounter" class="counter">0</div>
     </header>
-    <main>
-      <p id="question"></p>
-      <p id="tip"></p>
-      <input id="answer" type="text" autofocus>
-      <p class="counter"></p>
-    </main>
-    <aside id="goodAnswers" class="answers">
-      <div class="counter"></div>
-    </aside>
-    <aside id="badAnswers" class="answers">
-      <div class="counter"></div>
-    </aside>
+    <div class="wrapper">
+      <aside id="goodAnswers" class="answers"></aside>
+      <main>
+        <div class="wrapper">
+          <p id="question"></p>
+          <p id="tip"></p>
+          <input id="answer" type="text" autofocus>
+          <p class="counter"></p>
+        </div>
+      </main>
+      <aside id="badAnswers" class="answers"></aside>
+    </div>
   </body>
 </html>
