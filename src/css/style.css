@@ -4,7 +4,7 @@
   --color-red: #ff5d8f;
   --color-green: #c1fba4;
   --color-blue: #219ebc;
-  --color-shadow: rgba(36, 37, 38,.5);
+  --color-shadow: rgba(36, 37, 38);
 }
 
 * {
@@ -31,8 +31,7 @@ body {
 
 header {
   position: fixed;
-  padding: 10px 0;
-  background-color: var(--main-bg-color);
+  background-color: var(--color-shadow);
   display: flex;
   font-size: .5rem;
   width: 100%;
@@ -103,7 +102,7 @@ li:hover {
 }
 
 .main__menu, form {
-  padding: 10px;
+  padding: 15px;
   width: 25%;
 }
 
@@ -113,19 +112,19 @@ li:hover {
 }
 
 .main__menu > ul {
-  margin: 10px 0;
+  margin: 15px 0;
   left: 0;
-  background-color: var(--main-bg-color);
+  background-color: var(--color-shadow);
 }
 
-.main__menu:hover > ul, li:hover .sub__menu {
+.main__menu:hover > ul, li:hover > .sub__menu {
   display: block;
 }
 
 .sub__menu {
   display: none;
   left: 100%;
-  background-color: var(--main-bg-color);
+  background-color: var(--color-shadow);
   text-align: left;
   transform: translateY(-28px);
 }
@@ -140,6 +139,13 @@ li:hover > input[type="radio"]:checked + label {
   align-items: center;
 }
 
+.sub__menu li:hover ul {
+  display: block;
+}
+
+.sub__menu li .sub__menu {
+  width: initial;
+}
 
 #deleteBtn {
   font-size: .5rem;
@@ -150,6 +156,11 @@ li:hover > input[type="radio"]:checked + label {
   border-color: var(--color-blue);
   border-radius: 30px;
   padding: 5px 10px;
+}
+
+.extend {
+  text-transform: capitalize;
+  color: var(--color-red);
 }
 
 /* COUNTERS */
