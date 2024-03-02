@@ -13,6 +13,7 @@ questions = allQuestions[options.chapter];
 const question = document.getElementById(`question`);
 const tip = document.getElementById(`tip`);
 const answer = document.getElementById(`answer`);
+const example = document.getElementById(`example`);
 const mainCounter = document.querySelector(`main .counter`);
 const goodCounter = document.querySelector(`#goodCounter`);
 const badCounter = document.querySelector(`#badCounter`);
@@ -36,6 +37,7 @@ let displayQuestion = (index) => {
   const questionTmp = questions[index];
   question.textContent = `${questionTmp[options.language.origin]}`;
   tip.textContent = questionTmp.tip ? `${questionTmp.tip}` : ``;
+  example.textContent = questionTmp.example && questionTmp.example[options.language.origin] ? `${questionTmp.example[options.language.origin]}` : ``;
 }
 
 let drawQuestion = () => {
