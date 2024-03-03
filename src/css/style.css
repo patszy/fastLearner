@@ -139,6 +139,10 @@ li:hover > input[type="radio"]:checked + label {
   align-items: center;
 }
 
+.main__menu > ul > li:nth-last-child(-n+5) > ul{
+  transform: translateY(calc(-100% + 10px));
+}
+
 .sub__menu li:hover ul {
   display: block;
 }
