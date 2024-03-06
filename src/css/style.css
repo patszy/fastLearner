@@ -1,7 +1,7 @@
 :root {
   --main-bg-color: #18191a;
   --main-text-color: #d7e3fc;
-  --color-red: #ff5d8f;
+  --color-red: #f08080;
   --color-green: #c1fba4;
   --color-blue: #219ebc;
   --color-shadow: rgba(36, 37, 38);
@@ -227,6 +227,10 @@ aside p {
 #badAnswers {
   color: var(--color-red);
   right: 0;
+}
+
+aside:hover p {
+  font-size: .5rem;
 }
 
 ::-webkit-scrollbar {

@@ -4,7 +4,8 @@ let options = {
   language: {
     origin: `pl`,
     translate: `en`,
-    mix: false
+    mix: false,
+    learn: false,
   },
   counter: 0
 };
@@ -38,6 +39,7 @@ let displayQuestion = (index) => {
   question.textContent = `${questionTmp[options.language.origin]}`;
   tip.textContent = questionTmp.tip ? `${questionTmp.tip}` : ``;
   example.textContent = questionTmp.example && questionTmp.example[options.language.origin] ? `${questionTmp.example[options.language.origin]}` : ``;
+  (options.language.learn) ? answer.placeholder = `${questionTmp[options.language.translate]}` : answer.placeholder = ``;
 }
 
 let drawQuestion = () => {
@@ -202,19 +204,25 @@ languageRadio.forEach(input => {
           options.language.origin = `pl`;
           options.language.translate = `en`;
           options.language.mix = false;
+          options.language.learn = false;
         break;
       case `en`:
         options.language.origin = `en`;
         options.language.translate = `pl`;
         options.language.mix = false;
+        options.language.learn = false;
         break;
       case `mix`:
           options.language.mix = true;
+        break;
+      case `learn`:
+          options.language.learn = true;
         break;
       default:
         options.language.origin = `pl`;
         options.language.translate = `en`;
         options.language.mix = false;
+        options.language.learn = false;
     }
     answer.value = ``;
     displayQuestion(questionIndex);
