@@ -1,10 +1,17 @@
 :root {
   --main-bg-color: #18191a;
   --main-text-color: #d7e3fc;
+  --color-accent: #219ebc;
   --color-red: #f08080;
   --color-green: #c1fba4;
   --color-blue: #219ebc;
-  --color-shadow: rgba(36, 37, 38);
+  --color-shadow: #14181d;
+  --color-shadow-light: #1a2026;
+  --color-shadow-dark: #0d1013;
+  --color-shadow-lighter: #212930;
+  /* --color-shadow: #343a40;
+  --color-shadow-light: #495057;
+  --color-shadow-dark: #212529; */
 }
 
 * {
@@ -17,7 +24,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-size: 32px;
+  font-size: clamp(16px, 2.2vw, 32px);
   color: var(--main-text-color);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -31,7 +38,7 @@ body {
 
 header {
   position: fixed;
-  background-color: var(--color-shadow);
+  background-color: var(--color-shadow-dark);
   display: flex;
   font-size: .5rem;
   width: 100%;
@@ -72,6 +79,7 @@ nav p {
 
 nav li {
   padding: 10px;
+  position: relative;
 }
 
 nav ul {
@@ -89,15 +97,14 @@ form {
 
 input[type="radio"] {
   display: none;
-  color: var(--color-blue);
 }
 
 input[type="radio"]:checked + label{
-  color: var(--color-blue);
+  color: var(--color-accent);
 }
 
-li:hover {
-  background-color: var(--color-blue);
+.main__menu li:hover {
+  background-color: var(--color-shadow-light);
   transition: all .3s;
 }
 
@@ -112,8 +119,11 @@ li:hover {
 }
 
 .main__menu > ul {
-  margin: 15px 0;
   left: 0;
+  background-color: var(--color-shadow);
+}
+
+.main__menu:hover {
   background-color: var(--color-shadow);
 }
 
@@ -124,23 +134,18 @@ li:hover {
 .sub__menu {
   display: none;
   left: 100%;
-  background-color: var(--color-shadow);
+  top: 0;
+  background-color: var(--color-shadow-light);
   text-align: left;
-  transform: translateY(-28px);
 }
 
-li:hover > input[type="radio"]:checked + label {
-  color: var(--main-text-color);
-}
-
-.main__menu > ul > li:last-child {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+.sub__menu > li:hover {
+  background-color: var(--color-shadow-lighter);
 }
 
 .main__menu > ul > li:nth-last-child(-n+5) > ul{
-  transform: translateY(calc(-100% + 10px));
+  top: unset;
+  bottom: 0;
 }
 
 .sub__menu li:hover ul {
@@ -152,18 +157,36 @@ li:hover > input[type="radio"]:checked + label {
 }
 
 #deleteBtn {
-  font-size: .5rem;
+  font-size: .4rem;
   text-transform: uppercase;
   color: var(--color-red);
   cursor: pointer;
-  background-color: transparent;
-  border-color: var(--color-blue);
+  background-color: var(--color-shadow-dark);
+  border-color: var(--color-accent);
   border-radius: 30px;
   padding: 5px 10px;
 }
 
 .extend {
   text-transform: capitalize;
+  color: var(--color-red);
+}
+
+  /* ICONS */
+
+nav .fa-solid {
+  margin-right: 10px;
+}
+
+li:hover .fa-solid, nav p .fa-solid {
+  color: var(--color-accent);
+}
+
+label[for="bad"] .fa-solid{
+  color: var(--color-green);
+}
+
+label[for="del"] .fa-solid{
   color: var(--color-red);
 }
 
@@ -174,9 +197,21 @@ main .counter {
   margin-top: 20%;
 }
 
+main .counter .fa-solid {
+  color: var(--color-blue);
+}
+
 header .counter {
   font-size: .5rem;
   width: 25%;
+}
+
+#goodCounter .fa-solid {
+  color: var(--color-green);
+}
+
+#badCounter .fa-solid {
+  color: var(--color-red);
 }
 
 /* MAIN ELEMENTS */
@@ -205,10 +240,36 @@ header .counter {
   padding: 10px;
   letter-spacing: 1px;
   border-bottom: 1px solid var(--color-blue);
+  width: 100%;
 }
 
 #example {
   margin: 5px 0;
+}
+
+.input__wrapper {
+  position: relative;
+}
+
+#answer:focus + .info {
+  display: block;
+}
+
+.input__wrapper .info {
+  display: none;
+  position: absolute;
+  font-size: .35rem;
+  top: 50%;
+  right: 0;
+  transform: translate(100%, -50%);
+  margin: 0;
+  letter-spacing: 2px;
+  z-index: 10;
+  color: var(--color-red);
+}
+
+.info .fa-solid {
+  margin-right: 5px;
 }
 
 /* ASIDE ELEMENTS */

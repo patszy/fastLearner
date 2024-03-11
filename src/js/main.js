@@ -15,15 +15,15 @@ const question = document.getElementById(`question`);
 const tip = document.getElementById(`tip`);
 const answer = document.getElementById(`answer`);
 const example = document.getElementById(`example`);
-const mainCounter = document.querySelector(`main .counter`);
-const goodCounter = document.querySelector(`#goodCounter`);
-const badCounter = document.querySelector(`#badCounter`);
+const mainCounter = document.querySelector(`main .counter span`);
+const goodCounter = document.querySelector(`#goodCounter span`);
+const badCounter = document.querySelector(`#badCounter span`);
 const chapterRadio = document.querySelectorAll(`input[type="radio"][name="chapter"]`);
 const languageRadio = document.querySelectorAll(`input[type="radio"][name="language"]`);
 const goodAnswers = document.getElementById(`goodAnswers`);
 const badAnswers = document.getElementById(`badAnswers`);
-const menuTitle = document.getElementById(`menuTitle`);
-const deleteBtn = document.getElementById(`deleteBtn`);
+const menuTitle = document.querySelector(`#menuTitle span`);
+const menuIcon = document.querySelector(`#menuTitle i`);
 const paragraphElement = document.createElement(`p`);
 
 // QUESTION AND ANSWER FUNCTIONS
@@ -106,8 +106,15 @@ let updateCounter = (counter, value) => {
 // START AND FINISH SETTINGS
 
 let init = () => {
-  options.chapter = document.querySelector(`input[type="radio"][name="chapter"]:checked`).value;
+  const checked = document.querySelector(`input[type="radio"][name="chapter"]:checked`);
+  options.chapter = checked.value;
   questions = allQuestions[options.chapter];
+  menuTitle.textContent = checked.previousElementSibling.textContent;
+
+  let parent = checked.parentElement;
+  while(parent.firstChild.tagName?.toLowerCase() !== `i`) parent = parent.parentElement;
+
+  menuIcon.classList = parent.firstChild.classList;
 }
 
 let start = () => {
@@ -124,7 +131,7 @@ let start = () => {
 
 let finish = () => {
   answer.setAttribute(`disabled`, `disabled`);
-  question.textContent = ``, tip.textContent = ``;
+  question.textContent = ``, tip.textContent = ``, example.textContent = ``;
   if(bad.length == 0) answer.value = `Passed`;
   else answer.value = `Dobre: ${good.length}  Złe: ${bad.length}`;
 }
@@ -174,23 +181,32 @@ document.addEventListener(`keypress`, (event) => {
 
 answer.addEventListener(`keyup`, checkAnswer);
 
-deleteBtn.addEventListener(`click`, () => {
-  localStorage.removeItem(`badAnswers`);
-  question.textContent = `Brak pytań`, tip.textContent = ``;;
-  updateCounter(mainCounter, 0);
-});
-
 chapterRadio.forEach(input => {
   input.addEventListener(`change`, (event) => {
-    options.chapter = event.target.value;
-    menuTitle.textContent = event.target.nextElementSibling.textContent;
+    let parent = event.target.parentElement;
+    while(parent.firstChild.tagName?.toLowerCase() !== `i`) parent = parent.parentElement;
 
-    if(event.target.value === `bad` && loadBad() && loadBad().length !== 0) questions = loadBad();
-    else {
-      questions = [];
-      question.textContent = `Brak pytań`;
-      questions = allQuestions[options.chapter];
-      updateCounter(mainCounter, 0);
+    menuTitle.textContent = event.target.previousElementSibling.textContent;
+    menuIcon.classList = parent.firstChild.classList;
+
+    switch(event.target.value) {
+      case `bad`:
+          if(loadBad() && loadBad().length !== 0) questions = loadBad();
+          else {
+            questions = [];
+            question.textContent = `Brak pytań`;
+            updateCounter(mainCounter, 0);
+          }
+        break;
+      case `del`:
+          questions = [];
+          localStorage.removeItem(`badAnswers`);
+          question.textContent = `Brak pytań`, tip.textContent = ``, example.textContent = ``;
+          updateCounter(mainCounter, 0);
+        break;
+      default:
+        options.chapter = event.target.value;
+        questions = allQuestions[options.chapter];
     }
     
     start();
